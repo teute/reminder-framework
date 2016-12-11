@@ -171,7 +171,7 @@ class ReminderTests: XCTestCase {
             XCTAssertEqual(reminders.count, 3)
             let reminder = Reminder(title: "Reminder Four", module: "301CDE",
                                     category: "Coursework", deadline: Date())
-            try reminders.insert(reminder: reminder, at: 3)
+            try reminders.insert(reminder: reminder, at: reminders.count)
             XCTAssertEqual(reminders.count, 4)
         } catch {
             XCTFail()
@@ -190,11 +190,11 @@ class ReminderTests: XCTestCase {
             XCTAssertEqual(reminders.count, 3)
             let reminder = Reminder(title: "Reminder Five", module: "301CDE",
                                     category: "Coursework", deadline: Date())
-            try reminders.insert(reminder: reminder, at: 4)
+            try reminders.insert(reminder: reminder, at: reminders.count + 1)
             XCTFail()
         } catch ReminderError.outOfRande(let index) {
             XCTAssertEqual(reminders.count, 3)
-            XCTAssertEqual(index, 4, "the exception should pass array index 4")
+            XCTAssertEqual(index, 3, "the exception should pass array index 4")
         } catch {
             XCTFail()
         }

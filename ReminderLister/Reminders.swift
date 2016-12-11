@@ -56,7 +56,10 @@ public class Reminders {
     }
     
     public func insert(reminder: Reminder, at index: Int) throws {
-        // TODO: needs implementing
+        if (index < 0) || (index > self.reminders.count) {
+            throw ReminderError.outOfRande(index: index)
+        }
+        self.reminders.insert(reminder, at: index)
     }
     
     public func update(reminder: Reminder, at index: Int) throws {
