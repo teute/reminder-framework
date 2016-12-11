@@ -26,21 +26,22 @@ public class Reminders {
     
     public static let sharedInstance = Reminders()
     
-    init() {
+    private init() {
         self.reminders = []
     }
     
     public var count: Int {
         get {
-            return 0;
-            // TODO: needs implementing
+            return self.reminders.count
         }
     }
     
     public func add(reminder: Reminder) throws {
-        // TODO: needs implementing
-        // Iterate through the list and find where on the list the reminder fits
-        // Insert the reminder at the correct index
+        if (reminder.title.isEmpty || reminder.module.isEmpty || reminder.category.isEmpty) {
+            throw ReminderError.emptyString
+        }
+        
+        self.reminders.append(reminder)
     }
     
     public func getReminder(at index: Int) throws -> Reminder {
@@ -49,7 +50,7 @@ public class Reminders {
     }
     
     public func clearList() {
-        // TODO: needs implementing
+        self.reminders.removeAll()
     }
     
     public func insert(reminder: Reminder, at index: Int) throws {

@@ -228,9 +228,11 @@ class ReminderTests: XCTestCase {
             try reminders.add(reminder: Reminder(title: "Reminder Three", module: "306AEE",
                                                  category: "Project", deadline: Date()))
             XCTAssertEqual(reminders.count, 3)
-            var reminder  = Reminder(title: "Reminder Three Update", module: "306AFF",
+            var reminder = Reminder(title: "Reminder Three Update", module: "306AFF",
                                      category: "Project", deadline: Date())
             try reminders.update(reminder: reminder, at: 2)
+            XCTAssertEqual(reminders.count, 3)
+            reminder = try reminders.getReminder(at: 2)
             XCTAssertEqual(reminder.title, "Reminder Three Update")
             XCTAssertEqual(reminder.module, "306AFF")
         } catch {
