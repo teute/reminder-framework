@@ -194,7 +194,7 @@ class ReminderTests: XCTestCase {
             XCTFail()
         } catch ReminderError.outOfRande(let index) {
             XCTAssertEqual(reminders.count, 3)
-            XCTAssertEqual(index, 3, "the exception should pass array index 4")
+            XCTAssertEqual(index, 4, "the exception should pass array index 4")
         } catch {
             XCTFail()
         }
