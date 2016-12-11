@@ -45,8 +45,10 @@ public class Reminders {
     }
     
     public func getReminder(at index: Int) throws -> Reminder {
-        return Reminder(title: "Hello", module: "301AEE", category: "Report", deadline: Date())
-        // TODO: needs implementing
+        if (index < 0) || (index > (self.reminders.count - 1)) {
+            throw ReminderError.outOfRande(index: index)
+        }
+        return self.reminders[index]
     }
     
     public func clearList() {
