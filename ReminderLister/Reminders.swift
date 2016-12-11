@@ -64,6 +64,9 @@ public class Reminders {
     }
     
     public func remove(at index: Int) throws {
-        // TODO: needs implementing
+        if (index < 0) || (index > (self.reminders.count - 1)) {
+            throw ReminderError.outOfRande(index: index)
+        }
+        self.reminders.remove(at: index)
     }
 }
