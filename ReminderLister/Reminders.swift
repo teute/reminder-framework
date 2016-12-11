@@ -9,10 +9,10 @@
 import Foundation
 
 public struct Reminder {
-    var title: String
-    var module: String
-    var category: String
-    var deadline: Date
+    public let title: String
+    public let module: String
+    public let category: String
+    public let deadline: Date
     
     public init(title: String, module: String, category: String, deadline: Date) {
         self.title = title
