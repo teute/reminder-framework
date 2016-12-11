@@ -13,6 +13,13 @@ public struct Reminder {
     var module: String
     var category: String
     var deadline: Date
+    
+    public init(title: String, module: String, category: String, deadline: Date) {
+        self.title = title
+        self.module = module
+        self.category = category
+        self.deadline = deadline
+    }
 }
 
 enum ReminderError: Error {
